@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<!-- Main CSS -->
+		<link rel="stylesheet" type="text/css" href="../src/css/frontend/main.css">
+
+		<!-- RequireJS -->
+		<script src="../src/js/frontend/require.js"></script>
+
+	</head>
+	<body class="mvt-app mvt-25">
+
+		<script>
+			requirejs(['../src/js/frontend/config'],() => {
+				requirejs(['jQuery','app','owl','aestheticpractice'],
+				() => {
+					let app = new App(), aestheticpractice = new AestheticPractice();
+					app.init({'type':'frontend'});
+					aestheticpractice.init();
+				});
+			});
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<!-- Main CSS -->
+		<link rel="stylesheet" type="text/css" href="../src/css/frontend/main.css">
+
+		<!-- Google Maps -->
+		<script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places&amp;key=AIzaSyC3yKdD_jDNxb4dEL4AD_eDcltW8WiVvPU"></script>
+
+		<!-- RequireJS -->
+		<script src="../src/js/frontend/require.js"></script>
+
+	</head>
+	<body class="mvt-app mvt-25">
+
+		<script>
+			requirejs(['../src/js/frontend/config'],() => {
+				requirejs(['progress','moment','jQuery','mask','datetimepicker','app','api','geocomplete','messenger','form','searcher','jSignature','sign','qstn'],
+				(progress,moment) => {
+					var app = new App(), messenger = new Messenger(), form = new Form(), searcher = new Searcher(), qstn = new Qstn();
+					window.progress = progress;
+					window.moment = moment;
+					messenger.init();
+					app.init({'type':'frontend'});
+					form.init({'path':'medical-records-request.json','title':'title','subtitle':'subtitle'});
+					qstn.init();
+					searcher.init();
+				});
+			});
+		</script>
+
+	</body>
+</html>

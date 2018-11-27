@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<!-- Main CSS -->
+		<link rel="stylesheet" type="text/css" href="../src/css/frontend/main.css">
+
+		<!-- RequireJS -->
+		<script src="../src/js/frontend/require.js"></script>
+
+	</head>
+	<body class="mvt-app mvt-25">
+
+		<script>
+			requirejs(['../src/js/frontend/config'],() => {
+				requirejs(['progress','moment','jQuery','owl','mask','datetimepicker','app','api','geocomplete','youtube','typewriter','messenger','home','searcher','jSignature','sign','qstn'],
+				(progress,moment) => {
+					var app = new App(), messenger = new Messenger(), home = new Home(), searcher = new Searcher(), qstn = new Qstn();
+					window.progress = progress;
+					window.moment = moment;
+					messenger.init();
+					app.init({'type':'frontend'});
+					home.init();
+					qstn.init();
+					searcher.init();
+				});
+			});
+		</script>
+
+	</body>
+</html>
